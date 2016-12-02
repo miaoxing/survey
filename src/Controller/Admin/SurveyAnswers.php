@@ -7,7 +7,7 @@ class SurveyAnswers extends \miaoxing\plugin\BaseController
     protected $controllerName = '问卷答案管理';
 
     protected $actionPermissions = [
-        'index,listByQuestion,listBySurvey' => '列表'
+        'index,listByQuestion,listBySurvey' => '列表',
     ];
 
     public function indexAction($req)
@@ -45,7 +45,7 @@ class SurveyAnswers extends \miaoxing\plugin\BaseController
     public function listByQuestionAction($req)
     {
         switch ($req['_format']) {
-            case 'json' :
+            case 'json':
                 $answers = wei()->surveyAnswer()->curApp()->andWhere(['questionId' => $req['questionId']]);
 
                 // 分页
@@ -68,7 +68,7 @@ class SurveyAnswers extends \miaoxing\plugin\BaseController
                             'values' => $values,
                             'images' => $images,
                             'user' => $answer->getUser()->toArray(),
-                            'question' => $answer->getQuestion()->toArray()
+                            'question' => $answer->getQuestion()->toArray(),
                         ];
                 }
 
@@ -80,6 +80,7 @@ class SurveyAnswers extends \miaoxing\plugin\BaseController
                 ]);
             default:
                 $question = wei()->surveyQuestion()->curApp()->findOneById($req['questionId']);
+
                 return get_defined_vars();
         }
     }
@@ -87,7 +88,7 @@ class SurveyAnswers extends \miaoxing\plugin\BaseController
     public function listBySurveyAction($req)
     {
         switch ($req['_format']) {
-            case 'json' :
+            case 'json':
                 $answers = wei()->surveyAnswer()->curApp()
                     ->select('distinct(userId)')
                     ->andWhere(['surveyId' => $req['surveyId']]);
@@ -98,7 +99,7 @@ class SurveyAnswers extends \miaoxing\plugin\BaseController
                 $data = [];
                 foreach ($answers->fetchAll() as $answer) {
                     $data[] = [
-                        'user' => wei()->user()->findOneById($answer['userId'])->toArray()
+                        'user' => wei()->user()->findOneById($answer['userId'])->toArray(),
                     ];
                 }
 
@@ -109,7 +110,7 @@ class SurveyAnswers extends \miaoxing\plugin\BaseController
                     'records' => wei()->surveyAnswer()->curApp()
                         ->select('count(distinct(userId))')
                         ->andWhere(['surveyId' => $req['surveyId']])
-                        ->fetchColumn()
+                        ->fetchColumn(),
                 ]);
             default:
                 return get_defined_vars();
@@ -127,7 +128,6 @@ class SurveyAnswers extends \miaoxing\plugin\BaseController
 
         if ($req['surveyId']) {
             $answers->andWhere(['surveyAnswers.surveyId' => $req['surveyId']]);
-
         } else {
             $survey = wei()->survey()->curApp()->findOrInit(['isDefault' => 1]);
             if (!$survey->isNew()) {
@@ -199,7 +199,7 @@ class SurveyAnswers extends \miaoxing\plugin\BaseController
                     if (!$data[$answer['questionId']][$ans - 1]) {
                         $data[$answer['questionId']][$ans - 1] = 0;
                     }
-                    $data[$answer['questionId']][$ans - 1]++;
+                    ++$data[$answer['questionId']][$ans - 1];
                 } else {
                     $data[$answer['questionId']][$ans] = 1;
                 }

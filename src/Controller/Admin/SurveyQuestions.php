@@ -16,7 +16,7 @@ class SurveyQuestions extends \miaoxing\plugin\BaseController
     public function indexAction($req)
     {
         switch ($req['_format']) {
-            case 'json' :
+            case 'json':
                 $surveyQuestions = wei()->surveyQuestion()->curApp();
 
                 if ($req['surveyId']) {
@@ -32,8 +32,8 @@ class SurveyQuestions extends \miaoxing\plugin\BaseController
                 // 搜索
                 if ($req['search']) {
                     $surveyQuestions->andWhere('id = ? OR name LIKE ?', [
-                        (int)$req['search'],
-                        '%' . $req['search'] . '%'
+                        (int) $req['search'],
+                        '%' . $req['search'] . '%',
                     ]);
                 }
 
@@ -42,14 +42,14 @@ class SurveyQuestions extends \miaoxing\plugin\BaseController
                     $ranges = explode('~', strtr($req['createTimeRange'], '.', '-'));
                     $ranges[0] = date('Y-m-d', strtotime($ranges[0]));
                     $ranges[1] = date('Y-m-d', strtotime($ranges[1])) . ' 23:59:59';
-                    $surveyQuestions->andWhere('createTime BETWEEN ? AND ?', array($ranges[0], $ranges[1]));
+                    $surveyQuestions->andWhere('createTime BETWEEN ? AND ?', [$ranges[0], $ranges[1]]);
                 }
 
                 $data = [];
                 foreach ($surveyQuestions->findAll() as $surveyQuestion) {
                     $data[] = [
                             'userCount' => $surveyQuestion->getUserCount(),
-                            'typeName' => $surveyQuestion->getTypeName()
+                            'typeName' => $surveyQuestion->getTypeName(),
                         ] + $surveyQuestion->toArray();
                 }
 
@@ -60,8 +60,8 @@ class SurveyQuestions extends \miaoxing\plugin\BaseController
                     'records' => $surveyQuestions->count(),
                 ]);
             default:
-                if($req['surveyId']) {
-                     $surveyId = $this->e($req['surveyId']);
+                if ($req['surveyId']) {
+                    $surveyId = $this->e($req['surveyId']);
                 }
 
                 return get_defined_vars();
@@ -95,12 +95,12 @@ class SurveyQuestions extends \miaoxing\plugin\BaseController
             'data' => $req,
             'rules' => [
                 'question' => [],
-                'type' => []
+                'type' => [],
             ],
             'names' => [
                 'question' => '问题',
-                'type' => '类型'
-            ]
+                'type' => '类型',
+            ],
         ]);
         if (!$validator->isValid()) {
             return $this->err($validator->getFirstMessage());
@@ -112,7 +112,7 @@ class SurveyQuestions extends \miaoxing\plugin\BaseController
         if ($req['options']['value']) {
             foreach ($req['options']['value'] as $option) {
                 $optionsData[] = [
-                    'value' => $option ?: ''
+                    'value' => $option ?: '',
                 ];
             }
         }
@@ -121,14 +121,13 @@ class SurveyQuestions extends \miaoxing\plugin\BaseController
             foreach ($req['options']['image'] as $i => $image) {
                 if ($optionsData[$i]) {
                     $optionsData[$i] += [
-                        'image' => $image ?: ''
+                        'image' => $image ?: '',
                     ];
                 } else {
                     $optionsData[] = [
-                        'image' => $image ?: ''
+                        'image' => $image ?: '',
                     ];
                 }
-
             }
         }
 

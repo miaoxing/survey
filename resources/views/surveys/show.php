@@ -49,8 +49,8 @@ use Miaoxing\Survey\Service\SurveyQuestion;
                     <div class="answer">
                       <div class="answer_text js-image">
                         <span>
-                          <?php foreach($answers as $answer) : ?>
-                            <?= $question->hasNotOptions() ? $answer : (($value = $question['options'][$answer - 1]['value']) ? '<div>'.$value.'</div>': ''); ?>
+                          <?php foreach ($answers as $answer) : ?>
+                            <?= $question->hasNotOptions() ? $answer : (($value = $question['options'][$answer - 1]['value']) ? '<div>'.$value.'</div>' : ''); ?>
                             <?= $question->hasNotOptions() ? '' : (($image = $question['options'][$answer - 1]['image']) ? '<img src="' . $image . '">' : ''); ?>
                           <?php endforeach; ?>
                         </span>
@@ -148,7 +148,7 @@ use Miaoxing\Survey\Service\SurveyQuestion;
     'plugins/wechatCorp/assets/wx-corp'
     <?php else : ?>
     'plugins/wechat/assets/wx'
-    <?php  endif ;?>
+    <?php  endif; ?>
   ], function (wx) {
     wx.load(function () {
       $('.js-image').on('click', 'img', function () {

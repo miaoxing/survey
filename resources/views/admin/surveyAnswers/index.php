@@ -61,8 +61,8 @@ $view->layout();
       <p><?= $i + 1 ?>. <?= $question['type'] ?></p>
     <?php
     switch ($question['type']) :
-    case SurveyQuestion::TYPE_RADIO :
-    case SurveyQuestion::TYPE_CHECKBOX :
+    case SurveyQuestion::TYPE_RADIO:
+    case SurveyQuestion::TYPE_CHECKBOX:
     ?>
       <table class="survey-table record-table table table-bordered table-hover">
         <thead>
@@ -85,8 +85,8 @@ $view->layout();
 
     <?php
     break;
-    case SurveyQuestion::TYPE_TEXT :
-    case SurveyQuestion::TYPE_TEXTAREA :
+    case SurveyQuestion::TYPE_TEXT:
+    case SurveyQuestion::TYPE_TEXTAREA:
     ?>
       <table class="js-survey-table-<?= $question['id'] ?> survey-table record-table table table-bordered table-hover">
         <thead>

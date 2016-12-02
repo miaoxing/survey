@@ -7,11 +7,11 @@ class SurveyQuestion extends \miaoxing\plugin\BaseModel
     protected $table = 'surveyQuestions';
 
     protected $providers = [
-        'db' => 'app.db'
+        'db' => 'app.db',
     ];
 
     protected $data = [
-        'sort' => 50
+        'sort' => 50,
     ];
 
     const TYPE_RADIO = 1;
@@ -63,12 +63,13 @@ class SurveyQuestion extends \miaoxing\plugin\BaseModel
     public function getUserCount()
     {
         $questionId = $this['id'];
-        $this->userCount = wei()->cache->get('surveyQuestions'.$this['id'].'UserCount', 30, function () use ($questionId){
+        $this->userCount = wei()->cache->get('surveyQuestions'.$this['id'].'UserCount', 30, function () use ($questionId) {
             return wei()->surveyAnswer()->curApp()
                 ->select('COUNT(DISTINCT(userId))')
                 ->andWhere(['questionId' => $questionId])
                 ->fetchColumn();
         });
+
         return $this->userCount;
     }
 

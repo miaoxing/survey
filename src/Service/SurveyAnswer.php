@@ -7,7 +7,7 @@ class SurveyAnswer extends \miaoxing\plugin\BaseModel
     protected $table = 'surveyAnswers';
 
     protected $providers = [
-        'db' => 'app.db'
+        'db' => 'app.db',
     ];
 
     protected $user;
@@ -16,6 +16,7 @@ class SurveyAnswer extends \miaoxing\plugin\BaseModel
     public function getUser()
     {
         $this->user || $this->user = wei()->user()->findById($this['userId']);
+
         return $this->user;
     }
 
@@ -25,13 +26,14 @@ class SurveyAnswer extends \miaoxing\plugin\BaseModel
     public function getQuestion()
     {
         $this->question || $this->question = wei()->surveyQuestion()->findById($this['questionId']);
+
         return $this->question;
     }
 
     public function afterFind()
     {
         parent::afterFind();
-        $this['answer'] = (array)json_decode($this['answer'], true);
+        $this['answer'] = (array) json_decode($this['answer'], true);
     }
 
     public function beforeSave()

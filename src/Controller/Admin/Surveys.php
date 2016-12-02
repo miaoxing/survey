@@ -17,7 +17,7 @@ class Surveys extends \miaoxing\plugin\BaseController
     public function indexAction($req)
     {
         switch ($req['_format']) {
-            case 'json' :
+            case 'json':
                 $surveys = wei()->survey()->curApp();
 
                 // 分页
@@ -36,7 +36,7 @@ class Surveys extends \miaoxing\plugin\BaseController
                     $ranges = explode('~', strtr($req['createTimeRange'], '.', '-'));
                     $ranges[0] = date('Y-m-d', strtotime($ranges[0]));
                     $ranges[1] = date('Y-m-d', strtotime($ranges[1])) . ' 23:59:59';
-                    $surveys->andWhere('createTime BETWEEN ? AND ?', array($ranges[0], $ranges[1]));
+                    $surveys->andWhere('createTime BETWEEN ? AND ?', [$ranges[0], $ranges[1]]);
                 }
 
                 wei()->event->trigger('beforeSurveyFind', [$surveys, $req]);
@@ -45,7 +45,7 @@ class Surveys extends \miaoxing\plugin\BaseController
                 foreach ($surveys->findAll() as $survey) {
                     $data[] = [
                             'userCount' => $survey->getUserCount(),
-                            'typeName' => $survey->getTypeName()
+                            'typeName' => $survey->getTypeName(),
                         ] + $survey->toArray();
                 }
 
@@ -68,6 +68,7 @@ class Surveys extends \miaoxing\plugin\BaseController
     public function editAction($req)
     {
         $survey = wei()->survey()->curApp()->findId($req['id']);
+
         return get_defined_vars();
     }
 
@@ -77,12 +78,12 @@ class Surveys extends \miaoxing\plugin\BaseController
             'data' => $req,
             'rules' => [
                 'name' => [],
-                'description' => []
+                'description' => [],
             ],
             'names' => [
                 'name' => '标题',
-                'description' => '简介'
-            ]
+                'description' => '简介',
+            ],
         ]);
         if (!$validator->isValid()) {
             return $this->err($validator->getFirstMessage());
@@ -116,14 +117,16 @@ class Surveys extends \miaoxing\plugin\BaseController
     {
         $survey = wei()->survey()->curApp()->findOneById($req['id']);
         $ret = wei()->audit->audit($survey, $req['pass'], $req['description']);
+
         return $this->ret($ret);
     }
 
     public function updateDefaultAction($req)
     {
-        $survey= wei()->survey()->curApp()->findOneById($req['id']);
+        $survey = wei()->survey()->curApp()->findOneById($req['id']);
         wei()->survey()->curApp()->andWhere('isDefault = 1')->update('isDefault = 0');
         $survey->save(['isDefault' => 1]);
+
         return $this->suc();
     }
 
@@ -169,7 +172,7 @@ class Surveys extends \miaoxing\plugin\BaseController
                             'type' => 2,
                             'surveyId' => $survey['id'],
                             'question' => $paperQuestion['title'],
-                            'options' => $paperQuestion['options']
+                            'options' => $paperQuestion['options'],
                         ]);
                         break;
                     case 'radio':
@@ -178,7 +181,7 @@ class Surveys extends \miaoxing\plugin\BaseController
                             'type' => 1,
                             'surveyId' => $survey['id'],
                             'question' => $paperQuestion['title'],
-                            'options' => $paperQuestion['options']
+                            'options' => $paperQuestion['options'],
                         ]);
                         break;
                 }
@@ -200,7 +203,7 @@ class Surveys extends \miaoxing\plugin\BaseController
             foreach (json_decode($paperAnswer['JsonContents'], true) as $paperQuestion) {
                 $question = wei()->surveyQuestion()->curApp()->andWhere('question like ?', ['%' . $paperQuestion['title'] . '%'])->findOne();
                 $user = wei()->user()->findOrInit(['wechatUserId' => $paperAnswer['QUserId']]);
-                if($user->isNew() || $user->get('id')==1) {
+                if ($user->isNew() || $user->get('id') == 1) {
                     continue;
                 }
                 $surveyAnswer = wei()->surveyAnswer()->curApp()->findId(0);
@@ -212,6 +215,7 @@ class Surveys extends \miaoxing\plugin\BaseController
                 ]);
             }
         }
+
         return $this->suc();
     }
 }
