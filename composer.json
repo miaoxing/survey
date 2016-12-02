@@ -1,0 +1,23 @@
+{
+  "name": "miaoxing/survey",
+  "description": "Miaoxing Survey Plugin",
+  "keywords": [
+    "miaoxing", "survey"
+  ],
+  "license": "MIT",
+  "require": {
+    "miaoxing/app": "dev-master@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "Miaoxing\\Survey\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "MiaoxingTest\\Survey\\": "tests"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
