@@ -5,7 +5,7 @@
 <?= $block->end() ?>
 
 <div class="page-header">
-  <a class="btn pull-right" href="<?= $url('admin/survey-questions?surveyId=%s', isset($surveyId) ? $surveyId : '') ?>">返回列表</a>
+  <a class="btn btn-default pull-right" href="<?= $url('admin/survey-questions?surveyId=%s', isset($surveyId) ? $surveyId : '') ?>">返回列表</a>
 
   <h1>
     微官网
