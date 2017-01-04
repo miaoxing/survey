@@ -11,7 +11,7 @@ class V20161202104212CreateSurveyTables extends BaseMigration
      */
     public function up()
     {
-        $this->scheme->table('surveys')
+        $this->schema->table('surveys')
             ->id()
             ->int('appId')
             ->string('name', 32)
@@ -27,7 +27,7 @@ class V20161202104212CreateSurveyTables extends BaseMigration
             ->userstamps()
             ->exec();
 
-        $this->scheme->table('surveyQuestions')
+        $this->schema->table('surveyQuestions')
             ->id()
             ->int('appId')
             ->int('surveyId')
@@ -39,7 +39,7 @@ class V20161202104212CreateSurveyTables extends BaseMigration
             ->userstamps()
             ->exec();
 
-        $this->scheme->table('surveyAnswers')
+        $this->schema->table('surveyAnswers')
             ->id()
             ->int('appId')
             ->int('surveyId')
@@ -55,8 +55,8 @@ class V20161202104212CreateSurveyTables extends BaseMigration
      */
     public function down()
     {
-        $this->scheme->dropIfExists('surveys');
-        $this->scheme->dropIfExists('surveyQuestions');
-        $this->scheme->dropIfExists('surveyAnswers');
+        $this->schema->dropIfExists('surveys');
+        $this->schema->dropIfExists('surveyQuestions');
+        $this->schema->dropIfExists('surveyAnswers');
     }
 }
