@@ -1,7 +1,7 @@
 <?php $view->layout() ?>
 
 <?= $block('css') ?>
-<link rel="stylesheet" href="<?= $asset('plugins/admin/assets/filter.css') ?>"/>
+<link rel="stylesheet" href="<?= $asset('plugins/admin/css/filter.css') ?>"/>
 <?= $block->end() ?>
 
 <!-- /.page-header -->
