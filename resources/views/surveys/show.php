@@ -145,9 +145,9 @@ use Miaoxing\Survey\Service\SurveyQuestion;
   // 微信端点击放大预览
   require([
     <?php if (wei()->plugin->isInstalled('wechatCorp')) :?>
-    'plugins/wechatCorp/assets/wx-corp'
+    'plugins/wechatCorp/js/wx-corp'
     <?php else : ?>
-    'plugins/wechat/assets/wx'
+    'plugins/wechat/js/wx'
     <?php  endif; ?>
   ], function (wx) {
     wx.load(function () {
