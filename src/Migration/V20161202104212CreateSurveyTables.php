@@ -23,8 +23,8 @@ class V20161202104212CreateSurveyTables extends BaseMigration
             ->datetime('endTime')
             ->bool('passed')
             ->bool('audit')
-            ->timestamps()
-            ->userstamps()
+            ->timestampsV1()
+            ->userstampsV1()
             ->exec();
 
         $this->schema->table('surveyQuestions')
@@ -35,8 +35,8 @@ class V20161202104212CreateSurveyTables extends BaseMigration
             ->text('options')
             ->tinyInt('type', 1)->comment('问题类型，1是单选，2是多选，3是单行文字，4是多行文字')
             ->int('sort', 4)
-            ->timestamps()
-            ->userstamps()
+            ->timestampsV1()
+            ->userstampsV1()
             ->exec();
 
         $this->schema->table('surveyAnswers')
