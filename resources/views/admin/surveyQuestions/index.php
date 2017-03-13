@@ -7,7 +7,8 @@
 <!-- /.page-header -->
 <div class="page-header">
   <div class="pull-right">
-    <a class="btn btn-success" href="<?= $url('admin/survey-questions/new?surveyId=%s',  isset($surveyId) ? $surveyId : '') ?>">添加问题</a>
+    <a class="btn btn-success"
+      href="<?= $url('admin/survey-questions/new?surveyId=%s', isset($surveyId) ? $surveyId : '') ?>">添加问题</a>
   </div>
 
   <h1>
@@ -39,11 +40,11 @@
       <table class="js-survey-question-table record-table table table-bordered table-hover">
         <thead>
         <tr>
-          <th style="width: 60px">问卷ID</th>
+          <th class="t-4">问卷ID</th>
           <th>问题</th>
-          <th style="width: 100px">评测类型</th>
-          <th style="width: 80px">答题人数</th>
-          <th style="width: 160px">操作</th>
+          <th class="t-10">评测类型</th>
+          <th class="t-6">答题人数</th>
+          <th class="t-12">操作</th>
         </tr>
         </thead>
         <tbody>
@@ -111,8 +112,8 @@
     </a>
 
     <a class="text-danger delete-record"
-       data-href="<%= $.url('admin/survey-questions/destroy', {id: id}) %>"
-       href="javascript:;" title="删除">
+      data-href="<%= $.url('admin/survey-questions/destroy', {id: id}) %>"
+      href="javascript:" title="删除">
       <i class="fa fa-trash-o bigger-130"></i>
     </a>
   </div>

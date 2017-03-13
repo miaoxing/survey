@@ -22,11 +22,11 @@ $view->layout();
 
 <div class="row">
   <div class="col-xs-8 col-xs-offset-2">
-    <div class="stat-container" style="margin-bottom: 15px;">
+    <div class="stat-container form-group">
       <div class="infobox-container row">
 
         <div class="col-md-12">
-          <div class="col-md-6 stat-box" style="border-left: 0">
+          <div class="col-md-6 stat-box">
             <div class="infobox infobox-green">
               <div class="infobox-icon">
                 <i class="ace-icon fa fa-group"></i>
@@ -57,56 +57,56 @@ $view->layout();
       </div>
     </div>
 
-    <?php foreach ($survey->getQuestions() as $i => $question) : ?>
-      <p><?= $i + 1 ?>. <?= $question['type'] ?></p>
-    <?php
-    switch ($question['type']) :
-    case SurveyQuestion::TYPE_RADIO:
-    case SurveyQuestion::TYPE_CHECKBOX:
-    ?>
-      <table class="survey-table record-table table table-bordered table-hover">
-        <thead>
-        <tr>
-          <th class="text-left" style="text-align: left">选项</th>
-          <th class="text-right" style="width: 120px; text-align: right">人数</th>
-          <th class="text-right" style="width: 120px; text-align: right">百分比</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($question['options'] as $option) : ?>
-          <tr>
-            <td class="text-left">选项</td>
-            <td class="text-right">0%</td>
-            <td class="text-right">0%</td>
-          </tr>
-        <?php endforeach ?>
-        </tbody>
-      </table>
+    <div>
+      <?php foreach ($survey->getQuestions() as $i => $question) : ?>
+        <p><?= $i + 1 ?>. <?= $question['type'] ?></p>
+        <?php
+          switch ($question['type']) :
+            case SurveyQuestion::TYPE_RADIO:
+            case SurveyQuestion::TYPE_CHECKBOX:
+            ?>
+            <table class="survey-table record-table table table-bordered table-hover">
+              <thead>
+              <tr>
+                <th class="text-left">选项</th>
+                <th class="text-right t-12">人数</th>
+                <th class="text-right t-12">百分比</th>
+              </tr>
+              </thead>
+              <tbody>
+              <?php foreach ($question['options'] as $option) : ?>
+                <tr>
+                  <td class="text-left">选项</td>
+                  <td class="text-right">0%</td>
+                  <td class="text-right">0%</td>
+                </tr>
+              <?php endforeach ?>
+              </tbody>
+            </table>
 
-    <?php
-    break;
-    case SurveyQuestion::TYPE_TEXT:
-    case SurveyQuestion::TYPE_TEXTAREA:
-    ?>
-      <table class="js-survey-table-<?= $question['id'] ?> survey-table record-table table table-bordered table-hover">
-        <thead>
-        <tr>
-          <th class="text-left" style="width: 160px; text-align: left">用户</th>
-          <th class="text-right" style="text-align: left">文本答案</th>
-          <th class="text-right" style="width: 100px;">提交时间</th>
-        </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
-
-
-      <?php
-      break;
-    endswitch;
-      ?>
-    <?php endforeach ?>
-
+            <?php
+              break ;
+            case SurveyQuestion::TYPE_TEXT:
+            case SurveyQuestion::TYPE_TEXTAREA:
+            ?>
+            <table
+              class="js-survey-table<?= $question['id'] ?> survey-table record-table table table-bordered table-hover">
+              <thead>
+              <tr>
+                <th class="text-left t-12">用户</th>
+                <th class="text-left">文本答案</th>
+                <th class="text-right t-12">提交时间</th>
+              </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+            <?php
+            break ;
+        endswitch;
+        ?>
+      <?php endforeach ?>
+    </div>
     <!-- PAGE CONTENT ENDS -->
   </div>
   <!-- /col -->
@@ -118,7 +118,7 @@ $view->layout();
 <?= $block('js') ?>
 <script>
   require(['dataTable', 'jquery-deparam', 'form'], function () {
-    $('.js-survey-table-<?= $question['id'] ?>').dataTable({
+    $('.js-survey-table<?= $question['id'] ?>').dataTable({
       ajax: {
         url: $.url('admin/survey-answers/texts.json', {questionId: <?= $question['id'] ?>})
       },

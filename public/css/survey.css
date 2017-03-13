@@ -1,7 +1,3 @@
-* {
-  background-repeat: no-repeat
-}
-
 p, ul, ol {
   margin: 0;
   padding: 0
@@ -125,7 +121,6 @@ html, body {
   min-height: 36px;
   font-size: 14px;
   resize: none;
-  outline: 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box
 }
@@ -150,7 +145,6 @@ html, body {
 
 .g_survey .survey_form_checkbox + label .survey_form_ui {
   display: inline-block;
-  *display: inline;
   zoom: 1;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -218,7 +212,6 @@ html, body {
 
 .g_survey .question .option_text {
   display: inline-block;
-  *display: inline;
   zoom: 1
 }
 
@@ -249,20 +242,12 @@ html, body {
   width: 100%
 }
 
-.g_survey .question.required .title_text > *:last-child:after {
-  content: '*';
-  font-weight: 700;
-  color: #fa5b50;
-  margin-left: 5px
-}
-
 .g_survey .question_checkbox .inputs, .g_survey .question_radio .inputs {
   font-size: 0
 }
 
 .g_survey .question_checkbox .option_item, .g_survey .question_radio .option_item {
   display: inline-block;
-  *display: inline;
   zoom: 1;
   vertical-align: top;
   position: relative
@@ -286,7 +271,6 @@ html, body {
 }
 
 .g_survey .question_checkbox .option_item .option_text, .g_survey .question_radio .option_item .option_text {
-  /*display: block;*/
   z-index: 1;
   position: relative;
   margin-top: 7px;
@@ -309,8 +293,6 @@ html, body {
   .g_survey .question .title {
     background-color: #f1f1f1;
     padding: 4px 20px;
-    position: -webkit-sticky;
-    position: sticky
   }
 
   .g_survey .question .description {
@@ -405,10 +387,6 @@ html, body {
 .question label {
   font-weight: normal;
   margin-bottom: 0;
-}
-
-.question label > * {
-  /*pointer-events: none;*/
 }
 
 .tips {

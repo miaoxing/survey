@@ -79,7 +79,7 @@
 
         <div class="col-lg-4">
           <div>
-            <input type="text" class="form-control js-end-time" name="endTime" style="position: relative;">
+            <input type="text" class="form-control js-end-time" name="endTime">
           </div>
         </div>
       </div>

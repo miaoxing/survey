@@ -20,7 +20,7 @@
         <thead>
         <tr>
           <th>用户</th>
-          <th style="width: 160px">操作</th>
+          <th class="t-12">操作</th>
         </tr>
         </thead>
         <tbody>
@@ -37,7 +37,7 @@
 
 <script id="table-actions" type="text/html">
   <div class="action-buttons">
-    <a class="js-detail-record" href="javascript:;" title="查看" data-id="<%= id %>">
+    <a class="js-detail-record" href="javascript:" title="查看" data-id="<%= id %>">
       <i class="fa fa-search-plus bigger-130"></i>
     </a>
   </div>

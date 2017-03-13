@@ -5,7 +5,8 @@
 <?= $block->end() ?>
 
 <div class="page-header">
-  <a class="btn btn-default pull-right" href="<?= $url('admin/survey-questions?surveyId=%s', isset($surveyId) ? $surveyId : '') ?>">返回列表</a>
+  <a class="btn btn-default pull-right"
+    href="<?= $url('admin/survey-questions?surveyId=%s', isset($surveyId) ? $surveyId : '') ?>">返回列表</a>
 
   <h1>
     微官网
@@ -77,7 +78,7 @@
           <div class="js-options">
           </div>
 
-          <a href="javascript:;" class="js-add-option add-option text-muted">
+          <a href="javascript:" class="js-add-option add-option text-muted">
             <i class="fa fa-plus"></i>
             增加选项
           </a>
@@ -99,7 +100,7 @@
           <div class="js-images">
           </div>
 
-          <a href="javascript:;" class="js-add-image add-option text-muted">
+          <a href="javascript:" class="js-add-image add-option text-muted">
             <i class="fa fa-plus"></i>
             增加图片
           </a>
@@ -113,7 +114,7 @@
       </div>
 
       <input type="hidden" name="id" id="id"/>
-      <input type="hidden" name="surveyId" id="surveyId"/>
+      <input type="hidden" name="surveyId" id="survey-id"/>
 
       <div class="clearfix form-actions form-group">
         <div class="col-lg-offset-2">
@@ -122,7 +123,8 @@
             保存
           </button>
           &nbsp; &nbsp; &nbsp;
-          <a class="btn btn-white" href="<?= $url('admin/survey-questions?surveyId=%s', isset($surveyId) ? $surveyId : '') ?>">
+          <a class="btn btn-white"
+            href="<?= $url('admin/survey-questions?surveyId=%s', isset($surveyId) ? $surveyId : '') ?>">
             <i class="fa fa-undo bigger-110"></i>
             返回列表
           </a>
@@ -205,7 +207,9 @@
 
     var appendImageHtml = function (html) {
       $('.js-survey-form').find('.js-images').append(html);
-      $('.js-survey-form').find('.js-images-closes').append('<div class="js-images-close close"><i class="fa fa-close"></i></div>');
+      $('.js-survey-form')
+        .find('.js-images-closes')
+        .append('<div class="js-images-close close"><i class="fa fa-close"></i></div>');
     };
 
     // images选项单独初始化

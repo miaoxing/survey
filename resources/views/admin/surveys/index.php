@@ -43,17 +43,15 @@
       <table class="js-record-table record-table table table-bordered table-hover">
         <thead>
         <tr>
-          <th style="width: 80px">评测类型</th>
+          <th class="t-8">评测类型</th>
           <th>名称</th>
-          <th style="width: 150px">结束时间</th>
-          <th style="width: 150px">创建时间</th>
-          <th style="width: 90px">默认</th>
-          <th style="width: 70px">答题人数</th>
-          <th style="width: 55px">统计</th>
-
+          <th class="t-12">结束时间</th>
+          <th class="t-12">创建时间</th>
+          <th class="t-4">默认</th>
+          <th class="t-4">答题人数</th>
+          <th class="t-4">统计</th>
           <?php wei()->event->trigger('tableCol', ['survey']); ?>
-
-          <th style="width: 200px">操作</th>
+          <th class="t-12">操作</th>
         </tr>
         </thead>
         <tbody>
@@ -156,8 +154,8 @@
     </a>
 
     <a class="text-danger delete-record"
-       data-href="<%= $.url('admin/surveys/destroy', {id: id}) %>"
-       href="javascript:;" title="删除">
+      data-href="<%= $.url('admin/surveys/destroy', {id: id}) %>"
+      href="javascript:" title="删除">
       <i class="fa fa-trash-o bigger-130"></i>
     </a>
   </div>
@@ -167,10 +165,10 @@
   <% if (isDefault == '1') { %>
   默认问卷
   <% } else { %>
-  <a href="javascript:;" class="js-set-default text-danger" data-id="<%= id %>">设为默认</a>
+  <a href="javascript:" class="js-set-default text-danger" data-id="<%= id %>">设为默认</a>
   <% } %>
 </script>
 
 <script id="statTpl" type="text/html">
-  <a  class="text-danger" href="<%= $.url('admin/survey-answers/stat', {surveyId: id}) %>" >统计</a>
+  <a class="text-danger" href="<%= $.url('admin/survey-answers/stat', {surveyId: id}) %>">统计</a>
 </script>

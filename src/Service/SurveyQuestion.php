@@ -63,7 +63,8 @@ class SurveyQuestion extends \miaoxing\plugin\BaseModel
     public function getUserCount()
     {
         $questionId = $this['id'];
-        $this->userCount = wei()->cache->get('surveyQuestions'.$this['id'].'UserCount', 30, function () use ($questionId) {
+        $key = 'surveyQuestions' . $this['id'] . 'UserCount';
+        $this->userCount = wei()->cache->get($key, 30, function () use ($questionId) {
             return wei()->surveyAnswer()->curApp()
                 ->select('COUNT(DISTINCT(userId))')
                 ->andWhere(['questionId' => $questionId])

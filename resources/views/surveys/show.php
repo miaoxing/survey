@@ -1,14 +1,10 @@
 <?php
 $view->layout();
 use Miaoxing\Survey\Service\SurveyQuestion;
-
 ?>
 
 <?= $block('css') ?>
 <link rel="stylesheet" href="<?= $asset('plugins/survey/css/survey.css') ?>">
-<style>
-
-</style>
 <?= $block->end() ?>
 
 <div class="g_wrapper page_survey g_survey">
@@ -31,7 +27,7 @@ use Miaoxing\Survey\Service\SurveyQuestion;
 
             <?php foreach ($questions as $index => $question) : ?>
               <div class="question question_<?= $question->getTypeNameEn() ?> required"
-                   id="question_<?= $question['id'] ?>" data-type="radio" data-id="<?= $question['id'] ?>">
+                id="question_<?= $question['id'] ?>" data-type="radio" data-id="<?= $question['id'] ?>">
                 <div class="inner">
                   <div class="title">
                     <div class="title_text"><p><?= $index + 1 ?>. <?= $question['question'] ?></p></div>
@@ -45,12 +41,12 @@ use Miaoxing\Survey\Service\SurveyQuestion;
 
                   <!-- 是否已回答问卷 -->
                   <?php if ($isAnswered) : ?>
-                  <?php $answers = $questionToAnswers[$question['id']]['answer']; ?>
+                    <?php $answers = $questionToAnswers[$question['id']]['answer']; ?>
                     <div class="answer">
                       <div class="answer_text js-image">
                         <span>
                           <?php foreach ($answers as $answer) : ?>
-                            <?= $question->hasNotOptions() ? $answer : (($value = $question['options'][$answer - 1]['value']) ? '<div>'.$value.'</div>' : ''); ?>
+                            <?= $question->hasNotOptions() ? $answer : (($value = $question['options'][$answer - 1]['value']) ? '<div>' . $value . '</div>' : ''); ?>
                             <?= $question->hasNotOptions() ? '' : (($image = $question['options'][$answer - 1]['image']) ? '<img src="' . $image . '">' : ''); ?>
                           <?php endforeach; ?>
                         </span>
@@ -63,7 +59,7 @@ use Miaoxing\Survey\Service\SurveyQuestion;
                         <?php foreach ($question['options'] as $i => $option) : ?>
                           <div class="option_item" style="width: 100%;">
                             <input class="survey_form_checkbox" id="option_<?= $question['id'] . '_' . $i ?>"
-                                   type="radio" name="answers[<?= $question['id'] ?>][]" value="<?= $i + 1 ?>">
+                              type="radio" name="answers[<?= $question['id'] ?>][]" value="<?= $i + 1 ?>">
 
                             <label for="option_<?= $question['id'] . '_' . $i ?>">
                               <i class="survey_form_ui"></i>
@@ -77,7 +73,7 @@ use Miaoxing\Survey\Service\SurveyQuestion;
                         <?php foreach ($question['options'] as $i => $option) : ?>
                           <div class="option_item" style="width: 100%;">
                             <input class="survey_form_checkbox" id="option_<?= $question['id'] . '_' . $i ?>"
-                                   type="checkbox" name="answers[<?= $question['id'] ?>][]" value="<?= $i + 1 ?>">
+                              type="checkbox" name="answers[<?= $question['id'] ?>][]" value="<?= $i + 1 ?>">
 
                             <label for="option_<?= $question['id'] . '_' . $i ?>">
                               <i class="survey_form_ui"></i>
@@ -89,11 +85,11 @@ use Miaoxing\Survey\Service\SurveyQuestion;
 
                       <?php elseif ($question['type'] == SurveyQuestion::TYPE_TEXT) : ?>
                         <input class="survey_form_input" type="text" name="answers[<?= $question['id'] ?>]"
-                               placeholder="请输入">
+                          placeholder="请输入">
 
                       <?php elseif ($question['type'] == SurveyQuestion::TYPE_TEXTAREA) : ?>
                         <textarea class="survey_form_input" name="answers[<?= $question['id'] ?>]" rows="5" cols="60"
-                                  placeholder="请输入"></textarea>
+                          placeholder="请输入"></textarea>
                       <?php endif ?>
                     </div>
 
@@ -111,7 +107,7 @@ use Miaoxing\Survey\Service\SurveyQuestion;
         <!-- 问卷操作区域 -->
         <?php if (isset($isAnswered) && !$isAnswered) : ?>
           <div class="survey_footer m-a-sm">
-            <a href="javascript:;" class="js-survey-submit btn btn-block btn-primary">提交</a>
+            <a href="javascript:" class="js-survey-submit btn btn-block btn-primary">提交</a>
           </div>
         <?php endif ?>
 
@@ -129,7 +125,7 @@ use Miaoxing\Survey\Service\SurveyQuestion;
       data[arr[i].name] = arr[i].value;
     }
     return data;
-  }
+  };
 
   // 如果填写了答案,移除错误提示
   $('.js-survey-form :input').change(function () {
@@ -159,7 +155,7 @@ use Miaoxing\Survey\Service\SurveyQuestion;
           current: $(this).attr('src'),
           urls: urls
         });
-        return;
+
       });
     });
   });

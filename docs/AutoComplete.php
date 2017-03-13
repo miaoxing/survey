@@ -1,6 +1,7 @@
 <?php
 
 namespace Miaoxing\Survey\docs {
+
     /**
      * @property    \Miaoxing\Survey\Service\Survey $survey 问卷管理
      * @method      \Miaoxing\Survey\Service\Survey|\Miaoxing\Survey\Service\Survey[] survey()
@@ -17,6 +18,7 @@ namespace Miaoxing\Survey\docs {
 }
 
 namespace {
+
     /**
      * @return \Miaoxing\Survey\docs\AutoComplete
      */

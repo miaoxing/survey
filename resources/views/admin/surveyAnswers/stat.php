@@ -22,11 +22,11 @@ $view->layout();
 
 <div class="row">
   <div class="col-xs-10 col-xs-offset-1">
-    <div class="stat-container" style="margin-bottom: 15px;">
+    <div class="stat-container form-group">
       <div class="infobox-container row">
 
         <div class="col-md-12">
-          <div class="col-md-6 stat-box" style="border-left: 0">
+          <div class="col-md-6 stat-box">
             <div class="infobox infobox-green">
               <div class="infobox-icon">
                 <i class="ace-icon fa fa-group"></i>
@@ -67,9 +67,9 @@ $view->layout();
           <table class="survey-table record-table table table-bordered table-hover">
             <thead>
             <tr>
-              <th class="text-left" style="text-align: left">选项</th>
-              <th class="text-right" style="width: 120px; text-align: right">人数</th>
-              <th class="text-right" style="width: 120px; text-align: right">百分比</th>
+              <th class="text-left">选项</th>
+              <th class="text-right t-12">人数</th>
+              <th class="text-right t-12">百分比</th>
             </tr>
             </thead>
             <tbody>
@@ -92,12 +92,12 @@ $view->layout();
         case SurveyQuestion::TYPE_TEXTAREA:
           ?>
           <table class="js-survey-table survey-table record-table table table-bordered table-hover"
-                 data-id="<?= $question['id'] ?>">
+            data-id="<?= $question['id'] ?>">
             <thead>
             <tr>
-              <th class="text-left" style="width: 200px; text-align: left">用户</th>
-              <th class="text-right" style="text-align: left">文本答案</th>
-              <th class="text-right" style="width: 100px;">提交时间</th>
+              <th class="text-left t-12">用户</th>
+              <th class="text-left">文本答案</th>
+              <th class="text-right t-12">提交时间</th>
             </tr>
             </thead>
             <tbody>

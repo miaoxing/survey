@@ -201,7 +201,11 @@ class Surveys extends \miaoxing\plugin\BaseController
         foreach ($papersAnswers as $paperAnswer) {
             $survey = wei()->survey()->findOneById($paperAnswer['surveyId']);
             foreach (json_decode($paperAnswer['JsonContents'], true) as $paperQuestion) {
-                $question = wei()->surveyQuestion()->curApp()->andWhere('question like ?', ['%' . $paperQuestion['title'] . '%'])->findOne();
+                $question = wei()->surveyQuestion()
+                    ->curApp()
+                    ->andWhere('question like ?', ['%' . $paperQuestion['title'] . '%'])
+                    ->findOne();
+
                 $user = wei()->user()->findOrInit(['wechatUserId' => $paperAnswer['QUserId']]);
                 if ($user->isNew() || $user->get('id') == 1) {
                     continue;

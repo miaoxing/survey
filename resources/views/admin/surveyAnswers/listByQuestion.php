@@ -17,7 +17,7 @@
     <div class="table-responsive">
       <div class="well form-well m-b">
         <form class="form-horizontal filter-form" id="search-form" role="form">
-          <div class="">
+          <div>
             问题：<?= $question['question'] ?>
           </div>
         </form>
@@ -26,10 +26,10 @@
       <table class="js-survey-answer-table record-table table table-bordered table-hover">
         <thead>
         <tr>
-          <th style="width: 60px">ID</th>
-          <th style="width: 200px">用户</th>
+          <th class="t-4">ID</th>
+          <th class="t-12">用户</th>
           <th>内容</th>
-          <th style="width: 120px">答题时间</th>
+          <th class="t-12">答题时间</th>
         </tr>
         </thead>
         <tbody>
