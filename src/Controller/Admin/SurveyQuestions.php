@@ -31,18 +31,10 @@ class SurveyQuestions extends \miaoxing\plugin\BaseController
 
                 // 搜索
                 if ($req['search']) {
-                    $surveyQuestions->andWhere('id = ? OR name LIKE ?', [
+                    $surveyQuestions->andWhere('id = ? OR question LIKE ?', [
                         (int) $req['search'],
                         '%' . $req['search'] . '%',
                     ]);
-                }
-
-                // 按创建时间时间筛选
-                if ($req['createTimeRange']) {
-                    $ranges = explode('~', strtr($req['createTimeRange'], '.', '-'));
-                    $ranges[0] = date('Y-m-d', strtotime($ranges[0]));
-                    $ranges[1] = date('Y-m-d', strtotime($ranges[1])) . ' 23:59:59';
-                    $surveyQuestions->andWhere('createTime BETWEEN ? AND ?', [$ranges[0], $ranges[1]]);
                 }
 
                 $data = [];

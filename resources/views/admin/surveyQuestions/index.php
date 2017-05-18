@@ -28,7 +28,7 @@
       <div class="well form-well m-b">
         <form class="form-horizontal filter-form" id="search-form" role="form">
           <div class="form-group form-group-sm">
-            <label class="col-md-1 control-label" for="createTimeRange">关键字：</label>
+            <label class="col-md-1 control-label" for="search">关键字：</label>
 
             <div class="col-md-3">
               <input type="text" class="form-control" name="search" placeholder="请输入名称或ID搜索">
