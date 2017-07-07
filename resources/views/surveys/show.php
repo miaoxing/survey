@@ -18,7 +18,13 @@ use Miaoxing\Survey\Service\SurveyQuestion;
         <div class="survey_title">
           <div class="inner">
             <div class="title_content"><?= $survey['name'] ?></div>
-            <div class="title_description"><?= $survey['description'] ?></div>
+            <div class="title_description">
+              <?= $survey['description'] ?>
+
+            </div>
+            <?php if ($isEnded) : ?>
+              <div class="text-warning">该问卷已结束</div>
+            <?php endif ?>
           </div>
         </div>
 
@@ -106,7 +112,7 @@ use Miaoxing\Survey\Service\SurveyQuestion;
         </div>
 
         <!-- 问卷操作区域 -->
-        <?php if (isset($isAnswered) && !$isAnswered) : ?>
+        <?php if (isset($isAnswered) && !$isAnswered && !$isEnded) : ?>
           <div class="survey_footer m-a-sm">
             <a href="javascript:" class="js-survey-submit btn btn-block btn-primary">提交</a>
           </div>

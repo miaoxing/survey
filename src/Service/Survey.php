@@ -40,13 +40,16 @@ class Survey extends \miaoxing\plugin\BaseModel
     public function getUserCount()
     {
         $surveyId = $this['id'];
-        $key = 'surveys' . $surveyId . 'UserCount';
-        $this->userCount || $this->userCount = wei()->cache->get($key, 86400, function () use ($surveyId) {
-            return wei()->surveyAnswer()->curApp()->select('COUNT(DISTINCT(userId))')
-                ->andWhere(['surveyId' => $surveyId])
-                ->fetchColumn();
-        });
+        $this->userCount || $this->userCount = wei()->surveyAnswer()->curApp()->select('COUNT(DISTINCT(userId))')
+            ->andWhere(['surveyId' => $surveyId])
+            ->fetchColumn();
 
         return $this->userCount;
+    }
+
+    public function isEnded()
+    {
+        return $this['endTime'] !== '0000-00-00 00:00:00'
+            && date('Y-m-d H:i:s') > $this['endTime'];
     }
 }

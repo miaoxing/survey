@@ -9,6 +9,7 @@
   <div class="pull-right">
     <a class="btn btn-success"
       href="<?= $url('admin/survey-questions/new?surveyId=%s', isset($surveyId) ? $surveyId : '') ?>">添加问题</a>
+    <a class="btn btn-default" href="<?= $url('admin/surveys') ?>">返回问卷列表</a>
   </div>
 
   <h1>
@@ -40,7 +41,7 @@
       <table class="js-survey-question-table record-table table table-bordered table-hover">
         <thead>
         <tr>
-          <th class="t-4">问卷ID</th>
+          <th class="t-4">问题ID</th>
           <th>问题</th>
           <th class="t-10">评测类型</th>
           <th class="t-6">答题人数</th>

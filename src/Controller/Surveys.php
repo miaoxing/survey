@@ -26,11 +26,18 @@ class Surveys extends \miaoxing\plugin\BaseController
             $questionToAnswers[$answer['questionId']] = $answer->toArray();
         }
 
+        $isEnded = $survey->isEnded();
+
         return get_defined_vars();
     }
 
     public function submitAction($req)
     {
+        $survey = wei()->survey()->findOneById($req['id']);
+        if ($survey->isEnded()) {
+            return $this->err('很抱歉，该问卷已结束');
+        }
+
         if (!$req['answers']) {
             return $this->err('缺少参数');
         }
