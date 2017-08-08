@@ -132,7 +132,7 @@
 <?= $block->end() ?>
 
 <script id="answer-links" type="text/html">
-  <a class="text-danger" href="<%= $.url('admin/survey-answers/list-by-survey', {surveyId : id}) %>" title="查看答题详情">
+  <a href="<%= $.url('admin/survey-answers/list-by-survey', {surveyId : id}) %>" title="查看答题详情">
     <%= userCount %>
   </a>
 </script>
@@ -165,10 +165,10 @@
   <% if (isDefault == '1') { %>
   默认问卷
   <% } else { %>
-  <a href="javascript:" class="js-set-default text-danger" data-id="<%= id %>">设为默认</a>
+  <a href="javascript:" class="js-set-default" data-id="<%= id %>">设为默认</a>
   <% } %>
 </script>
 
 <script id="statTpl" type="text/html">
-  <a class="text-danger" href="<%= $.url('admin/survey-answers/stat', {surveyId: id}) %>">统计</a>
+  <a href="<%= $.url('admin/survey-answers/stat', {surveyId: id}) %>">统计</a>
 </script>

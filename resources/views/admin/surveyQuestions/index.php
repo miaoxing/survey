@@ -101,7 +101,7 @@
 <?= $block->end() ?>
 
 <script id="answer-links" type="text/html">
-  <a class="text-danger" href="<%= $.url('admin/survey-answers/list-by-question', {questionId : id}) %>" title="查看答题详情">
+  <a href="<%= $.url('admin/survey-answers/list-by-question', {questionId : id}) %>" title="查看答题详情">
     <%= userCount %>
   </a>
 </script>
