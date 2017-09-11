@@ -39,7 +39,6 @@ use Miaoxing\Survey\Service\SurveyQuestion;
                   <div class="title">
                     <div class="title_text"><p><?= $index + 1 ?>. <?= $question['question'] ?></p></div>
                     <span class="required" title="必答" style="display: none;">*</span>
-                    <span class="tips"></span>
                   </div>
 
                   <div class="description">

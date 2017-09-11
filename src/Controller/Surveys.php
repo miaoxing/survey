@@ -34,6 +34,12 @@ class Surveys extends \miaoxing\plugin\BaseController
     public function submitAction($req)
     {
         $survey = wei()->survey()->findOneById($req['id']);
+
+        $ret = $this->event->until('preSurveyAnswer', [$survey, wei()->curUser]);
+        if ($ret) {
+            return $ret;
+        }
+
         if ($survey->isEnded()) {
             return $this->err('很抱歉，该问卷已结束');
         }
@@ -55,6 +61,8 @@ class Surveys extends \miaoxing\plugin\BaseController
                 ]);
             }
         }
+
+        $this->event->trigger('postSurveyAnswer', [$survey, wei()->curUser]);
 
         return $this->suc();
     }
