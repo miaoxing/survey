@@ -2,7 +2,7 @@
 
 namespace Miaoxing\Survey\Service;
 
-class Survey extends \miaoxing\plugin\BaseModel
+class Survey extends \Miaoxing\Plugin\BaseModel
 {
     protected $table = 'surveys';
 
