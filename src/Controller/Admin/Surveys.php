@@ -2,7 +2,7 @@
 
 namespace Miaoxing\Survey\Controller\admin;
 
-class Surveys extends \miaoxing\plugin\BaseController
+class Surveys extends \Miaoxing\Plugin\BaseController
 {
     protected $controllerName = '问卷管理';
 

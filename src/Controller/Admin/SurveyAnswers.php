@@ -2,7 +2,7 @@
 
 namespace Miaoxing\Survey\Controller\admin;
 
-class SurveyAnswers extends \miaoxing\plugin\BaseController
+class SurveyAnswers extends \Miaoxing\Plugin\BaseController
 {
     protected $controllerName = '问卷答案管理';
 

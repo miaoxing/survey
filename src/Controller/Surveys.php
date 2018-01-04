@@ -2,7 +2,7 @@
 
 namespace Miaoxing\Survey\Controller;
 
-class Surveys extends \miaoxing\plugin\BaseController
+class Surveys extends \Miaoxing\Plugin\BaseController
 {
     public function showAction($req)
     {
