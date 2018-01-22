@@ -87,7 +87,7 @@ $view->layout();
           </table>
 
           <?php
-          break;
+              break;
         case SurveyQuestion::TYPE_TEXT:
         case SurveyQuestion::TYPE_TEXTAREA:
           ?>
@@ -104,7 +104,7 @@ $view->layout();
             </tbody>
           </table>
           <?php
-          break;
+              break;
       endswitch;
       ?>
     <?php endforeach ?>

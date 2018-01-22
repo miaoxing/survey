@@ -1,7 +1,10 @@
 <?php
-$view->layout();
+
 use Miaoxing\Survey\Service\SurveyQuestion;
 
+$view->layout();
+
+// phpcs:disable Generic.Files.LineLength.TooLong
 ?>
 
 <?= $block('css') ?>
