@@ -46,7 +46,7 @@
 <?php require $this->getFile('user:admin/user/richInfo.php') ?>
 <?php require $this->getFile('survey:admin/surveyAnswers/detail.php') ?>
 
-<?= $block('js') ?>
+<?= $block->js() ?>
 <script>
   require(['dataTable', 'jquery-deparam', 'form', 'bootbox', 'daterangepicker'], function () {
     var recordTable = $('.js-survey-answer-table').dataTable({

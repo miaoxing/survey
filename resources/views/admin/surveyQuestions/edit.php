@@ -1,6 +1,6 @@
 <?php $view->layout() ?>
 
-<?= $block('css') ?>
+<?= $block->css() ?>
 <link rel="stylesheet" href="<?= $asset(['plugins/survey/css/admin/survey.css']) ?>">
 <?= $block->end() ?>
 
@@ -148,7 +148,7 @@
   </div>
 </script>
 
-<?= $block('js') ?>
+<?= $block->js() ?>
 <script>
   require(['form', 'validator', 'jquery-deparam', 'ueditor', 'template'], function () {
     var surveyQuestion = <?= $surveyQuestion->toJson(); ?>;

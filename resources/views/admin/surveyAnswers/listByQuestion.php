@@ -46,7 +46,7 @@
 
 <?php require $this->getFile('user:admin/user/richInfo.php') ?>
 
-<?= $block('js') ?>
+<?= $block->js() ?>
 <script>
   require(['dataTable', 'jquery-deparam', 'form', 'bootbox', 'daterangepicker'], function () {
     $('#search-form').update(function () {

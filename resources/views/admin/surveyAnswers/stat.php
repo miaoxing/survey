@@ -3,7 +3,7 @@ use Miaoxing\Survey\Service\SurveyQuestion;
 
 $view->layout();
 ?>
-<?= $block('css') ?>
+<?= $block->css() ?>
 <link rel="stylesheet" href="<?= $asset('assets/admin/stat.css') ?>"/>
 <?= $block->end() ?>
 
@@ -117,7 +117,7 @@ $view->layout();
 
 <?php require $this->getFile('user:admin/user/richInfo.php') ?>
 
-<?= $block('js') ?>
+<?= $block->js() ?>
 <script>
   require(['dataTable', 'jquery-deparam', 'form'], function () {
     $('.js-survey-table').each(function () {

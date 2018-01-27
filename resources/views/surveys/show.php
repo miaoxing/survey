@@ -7,7 +7,7 @@ $view->layout();
 // phpcs:disable Generic.Files.LineLength.TooLong
 ?>
 
-<?= $block('css') ?>
+<?= $block->css() ?>
 <link rel="stylesheet" href="<?= $asset('plugins/survey/css/survey.css') ?>">
 <?= $block->end() ?>
 
@@ -125,7 +125,7 @@ $view->layout();
   </div>
 </div>
 
-<?= $block('js') ?>
+<?= $block->js() ?>
 <script>
   var getSurvey = function () {
     var arr = $('.js-survey-form').serializeArray();
