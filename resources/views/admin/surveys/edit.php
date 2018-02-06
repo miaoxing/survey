@@ -57,15 +57,7 @@
         </label>
 
         <div class="col-lg-4">
-          <div class="input-group">
-            <input type="text" class="form-control js-thumb" id="pic" name="pic">
-            <span class="input-group-btn">
-                <button id="select-thumb" class="btn btn-white" type="button">
-                  <i class="fa fa-picture-o"></i>
-                  选择图片
-                </button>
-            </span>
-          </div>
+          <input type="text" class="form-control js-thumb" id="pic" name="pic">
         </div>
         <label class="col-lg-6 help-text" for="no">
           支持JPG、PNG格式，建议大图900像素 * 500像素，小图200像素 * 200像素，小于1M
@@ -109,7 +101,8 @@
 <script>
   require([
     'form', 'validator', 'jquery-deparam',
-    'assets/dateTimePicker', 'ueditor'
+    'assets/dateTimePicker',
+    'plugins/admin/js/image-upload'
   ], function () {
     var survey = <?= $survey->toJson(); ?>;
     $('.js-survey-form')
@@ -134,7 +127,7 @@
     });
 
     // 点击选择图片
-    $('.js-thumb').imageInput();
+    $('.js-thumb').imageUpload();
   });
 </script>
 <?= $block->end() ?>

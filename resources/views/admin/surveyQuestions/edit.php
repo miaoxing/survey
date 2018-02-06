@@ -108,7 +108,7 @@
 
         <div class="col-lg-4 no-padding-left">
           <div class="js-images-closes">
-            <div class="js-image-close close"><i class="fa fa-close"></i></div>
+            <div class="js-image-close close image-close"><i class="fa fa-close"></i></div>
           </div>
         </div>
       </div>
@@ -137,20 +137,14 @@
 <!-- /.row -->
 
 <script type="text/html" class="js-choose-image-tpl">
-  <div class="input-group type-option js-input">
+  <div class="type-option js-input" style="overflow: hidden">
     <input type="text" class="form-control js-thumb" id="options[image][]" name="options[image][]" value="<%= image %>">
-    <span class="input-group-btn">
-      <button id="select-thumb" class="btn btn-white" type="button">
-        <i class="fa fa-picture-o"></i>
-        选择图片
-      </button>
-    </span>
   </div>
 </script>
 
 <?= $block->js() ?>
 <script>
-  require(['form', 'validator', 'jquery-deparam', 'ueditor', 'template'], function () {
+  require(['form', 'validator', 'jquery-deparam', 'ueditor', 'template', 'plugins/admin/js/image-upload'], function () {
     var surveyQuestion = <?= $surveyQuestion->toJson(); ?>;
     $('.js-survey-form')
       .loadJSON(surveyQuestion)
@@ -209,7 +203,7 @@
       $('.js-survey-form').find('.js-images').append(html);
       $('.js-survey-form')
         .find('.js-images-closes')
-        .append('<div class="js-images-close close"><i class="fa fa-close"></i></div>');
+        .append('<div class="js-images-close close image-close"><i class="fa fa-close"></i></div>');
     };
 
     // images选项单独初始化
@@ -231,7 +225,9 @@
       var data = {'image': ''};
       var html = tpl(data);
       appendImageHtml(html);
-      $('.js-survey-form').find('.js-thumb:last').imageInput();
+      $('.js-survey-form').find('.js-thumb:last').imageUpload({
+        max: 1
+      });
     });
 
     // 删除选项
@@ -242,7 +238,9 @@
 
     // 点击选择图片
     $('.js-thumb').each(function () {
-      $(this).imageInput();
+      $(this).imageUpload({
+        max: 1
+      });
     })
   });
 </script>

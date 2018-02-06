@@ -19,6 +19,11 @@
   margin-bottom: 10px;
 }
 
+.survey-form .image-close {
+  height: 110px;
+  line-height: 110px;
+}
+
 .survey-form .no-padding-left {
   padding-left: 0;
 }
