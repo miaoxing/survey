@@ -14,6 +14,8 @@ class Surveys extends \Miaoxing\Plugin\BaseController
         'audit' => '审核',
     ];
 
+    protected $displayPageHeader = true;
+
     public function indexAction($req)
     {
         switch ($req['_format']) {

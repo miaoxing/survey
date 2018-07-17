@@ -4,20 +4,9 @@
 <link rel="stylesheet" href="<?= $asset('plugins/admin/css/filter.css') ?>"/>
 <?= $block->end() ?>
 
-<!-- /.page-header -->
-<div class="page-header">
-  <div class="pull-right">
-    <a class="btn btn-success" href="<?= $url('admin/surveys/new') ?>">添加问卷</a>
-  </div>
-
-  <h1>
-    微官网
-    <small>
-      <i class="fa fa-angle-double-right"></i>
-      问卷管理
-    </small>
-  </h1>
-</div>
+<?= $block('header-actions') ?>
+<a class="btn btn-success" href="<?= $url('admin/surveys/new') ?>">添加问卷</a>
+<?= $block->end() ?>
 
 <div class="row">
   <div class="col-xs-12">
