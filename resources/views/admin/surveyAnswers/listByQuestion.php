@@ -44,7 +44,7 @@
 </div>
 <!-- /row -->
 
-<?php require $this->getFile('user:admin/user/richInfo.php') ?>
+<?php require $this->getFile('@user/admin/user/richInfo.php') ?>
 
 <?= $block->js() ?>
 <script>

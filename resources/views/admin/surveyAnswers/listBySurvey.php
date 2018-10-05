@@ -43,8 +43,8 @@
   </div>
 </script>
 
-<?php require $this->getFile('user:admin/user/richInfo.php') ?>
-<?php require $this->getFile('survey:admin/surveyAnswers/detail.php') ?>
+<?php require $this->getFile('@user/admin/user/richInfo.php') ?>
+<?php require $this->getFile('@survey/admin/surveyAnswers/detail.php') ?>
 
 <?= $block->js() ?>
 <script>
