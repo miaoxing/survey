@@ -1,7 +1,7 @@
 <?php $view->layout() ?>
 
 <?= $block->css() ?>
-<link rel="stylesheet" href="<?= $asset(['plugins/survey/css/admin/survey.css']) ?>">
+<link rel="stylesheet" href="<?= $asset('plugins/survey/css/admin/survey.css') ?>">
 <?= $block->end() ?>
 
 <div class="page-header">
