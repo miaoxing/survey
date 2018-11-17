@@ -123,7 +123,7 @@
             保存
           </button>
           &nbsp; &nbsp; &nbsp;
-          <a class="btn btn-white"
+          <a class="btn btn-default"
             href="<?= $url('admin/survey-questions?surveyId=%s', isset($surveyId) ? $surveyId : '') ?>">
             <i class="fa fa-undo bigger-110"></i>
             返回列表

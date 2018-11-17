@@ -10,7 +10,7 @@ $view->layout();
 
 <!-- /.page-header -->
 <div class="page-header">
-  <a class="btn btn-white pull-right" href="<?= $url('admin/surveys') ?>">返回问卷列表</a>
+  <a class="btn btn-default pull-right" href="<?= $url('admin/surveys') ?>">返回问卷列表</a>
 
   <h1>
     问卷管理
