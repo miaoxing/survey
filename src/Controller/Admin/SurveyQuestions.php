@@ -1,6 +1,6 @@
 <?php
 
-namespace Miaoxing\Survey\Controller\admin;
+namespace Miaoxing\Survey\Controller\Admin;
 
 class SurveyQuestions extends \Miaoxing\Plugin\BaseController
 {
