@@ -22,7 +22,7 @@ $view->layout();
 </div>
 
 <div class="row">
-  <div class="col-8 col-offset-2">
+  <div class="col-8 offset-2">
     <div class="stat-container form-group">
       <div class="infobox-container row">
 
