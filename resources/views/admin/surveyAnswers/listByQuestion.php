@@ -15,7 +15,7 @@
   <div class="col-12">
     <!-- PAGE CONTENT BEGINS -->
     <div class="table-responsive">
-      <div class="well form-well m-b">
+      <div class="well">
         <form class="form-horizontal filter-form" id="search-form" role="form">
           <div>
             问题：<?= $question['question'] ?>
