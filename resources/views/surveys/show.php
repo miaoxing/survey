@@ -115,7 +115,7 @@ $view->layout();
 
         <!-- 问卷操作区域 -->
         <?php if (isset($isAnswered) && !$isAnswered && !$isEnded) : ?>
-          <div class="survey_footer m-a-sm">
+          <div class="survey_footer m-2">
             <a href="javascript:" class="js-survey-submit btn btn-block btn-primary">提交</a>
           </div>
         <?php endif ?>
