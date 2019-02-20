@@ -118,7 +118,7 @@ $view->layout();
 
 <?= $block->js() ?>
 <script>
-  require(['dataTable', 'jquery-deparam', 'form'], function () {
+  require(['plugins/admin/js/data-table', 'jquery-deparam', 'form'], function () {
     $('.js-survey-table<?= $question['id'] ?>').dataTable({
       ajax: {
         url: $.url('admin/survey-answers/texts.json', {questionId: <?= $question['id'] ?>})

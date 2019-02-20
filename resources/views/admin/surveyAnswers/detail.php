@@ -57,7 +57,7 @@
 
 <?= $block->js() ?>
 <script>
-  require(['dataTable', 'jquery-deparam', 'form', 'template'], function () {
+  require(['plugins/admin/js/data-table', 'jquery-deparam', 'form', 'template'], function () {
     template.helper('$', $);
     template.helper('parseInt', parseInt);
     var surveyId = '<?= $this->e($req['surveyId']); ?>';

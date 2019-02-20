@@ -56,7 +56,7 @@
 
 <?= $block->js() ?>
 <script>
-  require(['dataTable', 'jquery-deparam', 'form', 'bootbox', 'daterangepicker'], function () {
+  require(['plugins/admin/js/data-table', 'jquery-deparam', 'form', 'bootbox', 'daterangepicker'], function () {
     $('#search-form').update(function () {
       recordTable.reload($(this).serialize());
     });
