@@ -48,7 +48,7 @@
 
 <?= $block->js() ?>
 <script>
-  require(['plugins/admin/js/data-table', 'jquery-deparam', 'form', 'bootbox', 'daterangepicker'], function () {
+  require(['plugins/admin/js/data-table', 'jquery-deparam', 'form', 'plugins/app/js/bootbox', 'daterangepicker'], function () {
     var recordTable = $('.js-survey-answer-table').dataTable({
       ajax: {
         url: $.url('admin/survey-answers/list-by-survey.json', {surveyId: <?= $this->e($req['surveyId']); ?>})
