@@ -92,7 +92,7 @@
 <script>
   require([
     'form', 'validator', 'jquery-deparam',
-    'assets/dateTimePicker',
+    'plugins/admin/js/range-date-time-picker',
     'plugins/admin/js/image-upload'
   ], function () {
     var survey = <?= $survey->toJson(); ?>;
