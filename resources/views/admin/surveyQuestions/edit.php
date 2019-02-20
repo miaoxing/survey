@@ -144,7 +144,7 @@
 
 <?= $block->js() ?>
 <script>
-  require(['form', 'validator', 'jquery-deparam', 'ueditor', 'template', 'plugins/admin/js/image-upload'], function () {
+  require(['form', 'plugins/app/js/validation', 'jquery-deparam', 'ueditor', 'template', 'plugins/admin/js/image-upload'], function () {
     var surveyQuestion = <?= $surveyQuestion->toJson(); ?>;
     $('.js-survey-form')
       .loadJSON(surveyQuestion)

@@ -91,7 +91,7 @@
 <?= $block->js() ?>
 <script>
   require([
-    'form', 'validator', 'jquery-deparam',
+    'form', 'plugins/app/js/validation', 'jquery-deparam',
     'plugins/admin/js/range-date-time-picker',
     'plugins/admin/js/image-upload'
   ], function () {
