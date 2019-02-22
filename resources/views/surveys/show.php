@@ -169,7 +169,7 @@ $view->layout();
     });
   });
 
-  require(['jquery-form'], function () {
+  require(['plugins/app/libs/jquery-form/jquery.form'], function () {
     // 检查必填项是否填写
     $('.js-survey-submit').click(function () {
       var obj = getSurvey();
