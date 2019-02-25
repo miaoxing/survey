@@ -16,10 +16,10 @@
                 <label class="col-sm-2 control-label"><%= parseInt(i)+1 %>.</label>
 
                 <div class="col-sm-10">
-                  <p class="form-control-static">
+                  <p class="form-control-plaintext">
                     <%= data[i].question.question %>
                   </p>
-                  <p class="form-control-static">
+                  <p class="form-control-plaintext">
                     <% for(var j in data[i].values) { %>
                       <% if(data[i].values[j] != '') { %>
                         <%= data[i].values[j] %>
@@ -39,7 +39,7 @@
               <label for="createTime" class="col-sm-2 control-label">答题时间</label>
 
               <div class="col-sm-10">
-                <p class="form-control-static">
+                <p class="form-control-plaintext">
                   <%= data[0].createTime %>
                 </p>
               </div>
