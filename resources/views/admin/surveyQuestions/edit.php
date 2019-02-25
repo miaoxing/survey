@@ -5,7 +5,7 @@
 <?= $block->end() ?>
 
 <div class="page-header">
-  <a class="btn btn-default pull-right"
+  <a class="btn btn-default float-right"
     href="<?= $url('admin/survey-questions?surveyId=%s', isset($surveyId) ? $surveyId : '') ?>">返回列表</a>
 
   <h1>

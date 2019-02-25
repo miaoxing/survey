@@ -6,7 +6,7 @@
 
 <!-- /.page-header -->
 <div class="page-header">
-  <div class="pull-right">
+  <div class="float-right">
     <a class="btn btn-success"
       href="<?= $url('admin/survey-questions/new?surveyId=%s', isset($surveyId) ? $surveyId : '') ?>">添加问题</a>
     <a class="btn btn-default" href="<?= $url('admin/surveys') ?>">返回问卷列表</a>
