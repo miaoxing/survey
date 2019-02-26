@@ -5,7 +5,7 @@
 <?= $block->end() ?>
 
 <div class="page-header">
-  <a class="btn btn-default float-right"
+  <a class="btn btn-secondary float-right"
     href="<?= $url('admin/survey-questions?surveyId=%s', isset($surveyId) ? $surveyId : '') ?>">返回列表</a>
 
   <h1>
@@ -123,7 +123,7 @@
             保存
           </button>
           &nbsp; &nbsp; &nbsp;
-          <a class="btn btn-default"
+          <a class="btn btn-secondary"
             href="<?= $url('admin/survey-questions?surveyId=%s', isset($surveyId) ? $surveyId : '') ?>">
             <i class="fa fa-undo bigger-110"></i>
             返回列表

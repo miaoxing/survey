@@ -9,7 +9,7 @@
   <div class="float-right">
     <a class="btn btn-success"
       href="<?= $url('admin/survey-questions/new?surveyId=%s', isset($surveyId) ? $surveyId : '') ?>">添加问题</a>
-    <a class="btn btn-default" href="<?= $url('admin/surveys') ?>">返回问卷列表</a>
+    <a class="btn btn-secondary" href="<?= $url('admin/surveys') ?>">返回问卷列表</a>
   </div>
 
   <h1>

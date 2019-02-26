@@ -1,7 +1,7 @@
 <?php $view->layout() ?>
 
 <?= $block('header-actions') ?>
-<a class="btn btn-default float-right" href="<?= $url('admin/surveys') ?>">返回列表</a>
+<a class="btn btn-secondary float-right" href="<?= $url('admin/surveys') ?>">返回列表</a>
 <?= $block->end() ?>
 
 <div class="row">
@@ -76,7 +76,7 @@
             保存
           </button>
           &nbsp; &nbsp; &nbsp;
-          <a class="btn btn-default" href="<?= $url('admin/surveys') ?>">
+          <a class="btn btn-secondary" href="<?= $url('admin/surveys') ?>">
             <i class="fa fa-undo bigger-110"></i>
             返回列表
           </a>
