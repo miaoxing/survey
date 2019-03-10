@@ -144,7 +144,7 @@
 
 <?= $block->js() ?>
 <script>
-  require(['form', 'plugins/app/js/validation', 'ueditor', 'plugins/app/libs/artTemplate/template.min', 'plugins/admin/js/image-upload'], function () {
+  require(['plugins/admin/js/form', 'plugins/app/js/validation', 'ueditor', 'plugins/app/libs/artTemplate/template.min', 'plugins/admin/js/image-upload'], function () {
     var surveyQuestion = <?= $surveyQuestion->toJson(); ?>;
     $('.js-survey-form')
       .loadJSON(surveyQuestion)

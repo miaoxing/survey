@@ -57,7 +57,7 @@
 
 <?= $block->js() ?>
 <script>
-  require(['plugins/admin/js/data-table', 'form', 'plugins/app/libs/artTemplate/template.min'], function () {
+  require(['plugins/admin/js/data-table', 'plugins/admin/js/form', 'plugins/app/libs/artTemplate/template.min'], function () {
     template.helper('parseInt', parseInt);
     var surveyId = '<?= $this->e($req['surveyId']); ?>';
     var recordTable = $('.js-survey-answer-table');

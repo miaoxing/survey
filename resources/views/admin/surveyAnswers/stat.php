@@ -120,7 +120,7 @@ $view->layout();
 
 <?= $block->js() ?>
 <script>
-  require(['plugins/admin/js/data-table', 'form'], function () {
+  require(['plugins/admin/js/data-table', 'plugins/admin/js/form'], function () {
     $('.js-survey-table').each(function () {
       var qId = $(this).data('id');
       $(this).dataTable({
