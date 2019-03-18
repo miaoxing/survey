@@ -54,7 +54,7 @@ $view->layout();
                     <div class="answer">
                       <div class="answer_text js-image">
                         <span>
-                          <?php foreach ($answers as $answer) : ?>
+                          <?php foreach ((array) $answers as $answer) : ?>
                             <?= $question->hasNotOptions() ? $answer : (($value = $question['options'][$answer - 1]['value']) ? '<div>' . $value . '</div>' : ''); ?>
                             <?= $question->hasNotOptions() ? '' : (($image = $question['options'][$answer - 1]['image']) ? '<img src="' . $image . '">' : ''); ?>
                           <?php endforeach; ?>
